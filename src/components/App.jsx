@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ToDoItem from "./ToDoItem";
 
 function App() {
 
@@ -15,6 +16,14 @@ function handleClick() {
   setInputText("");
 }
 
+function deleteItem(id) {
+    setListItems((prevItems) => {
+      return prevItems.filter((item, index) => {
+        return index !== id;
+      })
+    })
+}
+
   return (
     <div className="container">
       <div className="heading">
@@ -28,8 +37,13 @@ function handleClick() {
       </div>
       <div>
         <ul>
-          {listItems.map((listItem) => {
-            return <li>{listItem}</li>
+          {listItems.map((listItem, index) => {
+            <ToDoItem 
+            key={index}
+            id={index}
+            text={listItem}
+            onChecked={deleteItem}
+            />
           })}
         </ul>
       </div>
