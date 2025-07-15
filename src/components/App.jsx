@@ -28,12 +28,13 @@ function deleteItem(id) {
       <div>
         <ul>
           {listItems.map((listItem, index) => {
+            return (
             <ToDoItem 
-            key={index}
-            id={index}
-            text={listItem}
-            onChecked={deleteItem}
-            />
+              key={index}
+              id={index}
+              text={listItem}
+              onChecked={deleteItem}
+            />)
           })}
         </ul>
       </div>
