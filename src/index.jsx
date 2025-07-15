@@ -1,9 +1,13 @@
-import React from "react";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./components/App";
 
 const domNode = document.getElementById("root");
-const root = createRoot(domNode).render(<App />);
+const root = createRoot(domNode).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
 
 //CHALLENGE: Make this app work by applying what you've learnt.
 //1. When new text is written into the input, its state should be saved.
